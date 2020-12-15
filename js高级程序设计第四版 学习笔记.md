@@ -72,3 +72,31 @@ let obj = new Object("some text");
 console.log(obj instanceof String);  // true 
 ```
 
+## 3.单例内置对象
+
+1.ECMA-262对内置对象的定义是任何由ECMAScript实现提供、与宿主环境无关，并在ECMAScript程序开始执行的时候就存在的对象，这就意味着开发者不用显式地实例化内置对象，因为他们已经实例化好了。
+
+2.Global对象是ECMAScript中最特别的对象，因为代码不会显示的访问它，ECMA-262规定Global对象为一种兜底对象，它所针对的是不属于任何对象的属性和方法，事实上，不存在全局变量和全局函数这种东西，在全局作用域中定义的变量和函数都会变成Golbal对象的属性，
+
+3.URL编码方法    encodeURI() 和 encodeURIComponent()用于编码统一资源标识符，以便传给浏览器。有效的URL不能包括某些字符，比如说空格，econdeURI()方法用于对整个URI进行编码，而encodeURIComponent()方法用于编码URI中单独的组件；
+
+4.eval()方法就是一个ECMAScript解释器，他接收一个参数，即一个要执行的ECMAScript字符串，当解释器发现eval()调用的时候，会将参数解释为实际的ECMAScript语句，然后将其插入到该位置，通过eval()执行的代码属于该调用所在上下文，被执行的代码与该上下文拥有相同的作用域链，这意味着定义在包含上下文中的变量可以在eval()调用内部被引用；
+
+5.当一个函数没有明确this值的情况下执行，this等于Global对象，获取Gloabl的方式
+
+```
+let global = function () {
+	return this;
+}()
+```
+
+虽然ECMA-262没有规定直接访问Global对象的方式，但浏览器将window对象实现为Global对象的代理。
+
+6.当代码开始执行的时候，全局上下文中会存在两个内置对象：Global和Math,其中Global对象在大多数浏览器中无法直接访问，不过，浏览器将其实现为window对象，所有全局变量和函数都是Global对象的属性，Math对象包含辅助完成复杂计算的属性和方法。
+
+# 第六章 集合引用类型
+
+## 1.Object
+
+1.1  在ECMAScript中表达式上下文值得是期待返回值的上下文；
+
